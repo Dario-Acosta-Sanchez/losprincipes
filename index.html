@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Los Príncipes — Churrería de toda la vida · Fátima, Córdoba</title>
+<meta name="description" content="Churrería Los Príncipes en Fátima (Córdoba): churros, geringos y chocolate recién hechos, tostadas a la andaluza y churros para llevar. Lun, mar, jue, vie y dom de 06:00 a 13:00." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,900&family=Caveat:wght@600;700&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --choco:#4a2c1a;
+    --choco-2:#6b4226;
+    --caramelo:#e0a458;
+    --caramelo-2:#f3cf94;
+    --crema:#fff8ee;
+    --crema-2:#fbe7c8;
+    --rosa:#f4a896;
+    --ink:#3a2414;
+    --muted:#8a7261;
+    --shadow:0 20px 45px -22px rgba(74,44,26,.35);
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Nunito Sans',sans-serif;color:var(--ink);background:var(--crema);line-height:1.7;overflow-x:hidden}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:700}
+  .script{font-family:'Caveat',cursive}
+  a{color:inherit}
+  img,svg{display:block}
+  .container{max-width:1140px;margin:0 auto;padding:0 1.6rem;position:relative}
+  .icon{width:1.3em;height:1.3em;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+  .icon.filled{fill:currentColor;stroke:none}
+
+  /* ---------- buttons ---------- */
+  .btn{display:inline-flex;align-items:center;gap:.6rem;padding:1rem 1.9rem;border-radius:999px;font-weight:800;font-size:.98rem;text-decoration:none;transition:transform .25s ease, box-shadow .25s ease, background .25s ease;border:2px solid transparent}
+  .btn-primary{background:var(--choco);color:var(--crema);box-shadow:0 12px 28px -12px rgba(74,44,26,.55)}
+  .btn-primary:hover{background:var(--choco-2);transform:translateY(-3px) rotate(-1deg)}
+  .btn-outline{border-color:var(--choco);color:var(--choco)}
+  .btn-outline:hover{background:var(--choco);color:var(--crema);transform:translateY(-3px) rotate(1deg)}
+  .btn-outline-light{border-color:var(--crema);color:var(--crema)}
+  .btn-outline-light:hover{background:var(--crema);color:var(--choco);transform:translateY(-3px)}
+
+  /* ---------- sticker ---------- */
+  .sticker{
+    display:inline-flex;align-items:center;gap:.4rem;
+    font-family:'Caveat',cursive;font-weight:700;font-size:1.35rem;
+    background:var(--caramelo);color:var(--choco);
+    padding:.25rem 1.2rem;border-radius:999px;
+    border:2px dashed var(--choco);transform:rotate(-4deg);
+  }
+
+  /* ---------- blobs ---------- */
+  .blob{position:absolute;border-radius:63% 37% 54% 46% / 55% 48% 52% 45%;z-index:0}
+
+  /* ---------- nav ---------- */
+  header{position:sticky;top:0;z-index:50;background:rgba(255,248,238,.9);backdrop-filter:blur(8px);border-bottom:2px solid var(--crema-2)}
+  nav{display:flex;align-items:center;justify-content:space-between;padding:1.1rem 0}
+  .brand{font-family:'Fraunces',serif;font-weight:900;font-size:1.5rem;color:var(--choco);display:flex;align-items:center;gap:.7rem}
+  .brand .script{font-size:1.05rem;color:var(--rosa);font-weight:700;align-self:flex-end;margin-bottom:.1rem}
+  .logo-badge{width:2.5rem;height:2.5rem;border-radius:50%;background:var(--caramelo);border:2px solid var(--choco);
+    display:flex;align-items:center;justify-content:center;color:var(--choco);flex-shrink:0}
+  .logo-badge .icon{width:1.4rem;height:1.4rem}
+  .nav-links{display:flex;align-items:center;gap:1.8rem}
+  .nav-links a{font-size:.92rem;font-weight:700;text-decoration:none;color:var(--ink)}
+  .nav-links a:hover{color:var(--rosa)}
+  .nav-links .btn{padding:.7rem 1.5rem;font-size:.85rem}
+  @media (max-width:760px){ .nav-links a:not(.btn){display:none} }
+
+  /* ---------- hero ---------- */
+  .hero{padding:4rem 0 5rem;position:relative}
+  .hero .blob.b1{width:480px;height:480px;background:var(--caramelo-2);top:-120px;right:-160px;opacity:.7}
+  .hero .blob.b2{width:240px;height:240px;background:var(--rosa);bottom:-60px;left:-100px;opacity:.35}
+  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:3rem;align-items:center;position:relative;z-index:1}
+  .hero h1{font-size:clamp(2.8rem,7vw,4.6rem);line-height:1;color:var(--choco);margin-bottom:.8rem}
+  .hero h1 .script{display:block;font-size:.45em;color:var(--rosa);margin-top:.3rem}
+  .hero p.lede{font-size:1.18rem;color:var(--muted);max-width:46ch;margin-bottom:1.6rem}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;margin-bottom:1.8rem}
+  .schedule-pill{display:inline-flex;align-items:center;gap:.7rem;background:#fff;border:2px solid var(--crema-2);border-radius:999px;padding:.7rem 1.3rem;font-weight:700;font-size:.95rem}
+  .schedule-pill .icon{color:var(--rosa)}
+
+  /* ---------- hero illustration ---------- */
+  .hero-illust{position:relative;width:100%;max-width:380px;aspect-ratio:1/1;margin:0 auto}
+  .cup{
+    position:absolute;left:50%;bottom:8%;transform:translateX(-50%);
+    width:62%;height:42%;
+    background:linear-gradient(160deg,var(--choco-2),var(--choco));
+    clip-path:polygon(14% 0%, 86% 0%, 74% 100%, 26% 100%);
+    box-shadow:var(--shadow);
+  }
+  .cup::after{
+    content:'';position:absolute;left:8%;right:8%;top:0;height:14px;
+    background:var(--caramelo-2);border-radius:50%;
+  }
+  .churro{
+    position:absolute;border-radius:999px;
+    background:repeating-linear-gradient(98deg, var(--caramelo) 0 9px, var(--caramelo-2) 9px 18px);
+    box-shadow:0 8px 18px -8px rgba(74,44,26,.4);
+  }
+  .churro-1{width:62%;height:15%;left:14%;bottom:38%;transform:rotate(-22deg)}
+  .churro-2{width:58%;height:14%;right:6%;bottom:44%;transform:rotate(18deg)}
+  .churro-3{width:50%;height:13%;left:24%;bottom:52%;transform:rotate(-4deg)}
+  .sugar{position:absolute;border-radius:50%;background:#fff;opacity:.85}
+  .steam{position:absolute;width:14px;height:34px;border-radius:50%;background:var(--crema-2);opacity:.7;filter:blur(2px);animation:rise 3.5s ease-in-out infinite}
+  .steam.s2{animation-delay:1.1s}
+  .steam.s3{animation-delay:2.1s}
+  @keyframes rise{
+    0%{transform:translateY(0) scale(1);opacity:.7}
+    50%{transform:translateY(-22px) scale(1.15);opacity:.25}
+    100%{transform:translateY(-40px) scale(1.3);opacity:0}
+  }
+  @media (max-width:900px){
+    .hero-grid{grid-template-columns:1fr;text-align:center}
+    .hero p.lede{margin-left:auto;margin-right:auto}
+    .hero-actions{justify-content:center}
+    .hero-illust{margin-top:1rem}
+  }
+
+  /* ---------- sections ---------- */
+  .section{padding:5rem 0;position:relative}
+  .section-head{text-align:center;max-width:640px;margin:0 auto 3rem}
+  .section-head .sticker{margin-bottom:1.1rem}
+  .section-head h2{font-size:clamp(2rem,4.5vw,2.8rem);color:var(--choco)}
+  .section-head p{color:var(--muted);margin-top:.9rem;font-size:1.08rem}
+  .section.dark{background:var(--choco);color:var(--crema)}
+  .section.dark .section-head h2{color:var(--crema)}
+  .section.dark .section-head p{color:var(--caramelo-2)}
+  .section.cream{background:var(--crema-2)}
+
+  /* ---------- producto estrella ---------- */
+  .menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2.6rem}
+  .menu-card{
+    background:#fff;border-radius:22px;padding:2.2rem;
+    box-shadow:var(--shadow);position:relative;
+    transition:transform .3s ease;
+  }
+  .menu-card:nth-child(1){transform:rotate(-1.5deg)}
+  .menu-card:nth-child(2){transform:rotate(1.5deg)}
+  .menu-card:nth-child(3){transform:rotate(-1deg)}
+  .menu-card:hover{transform:rotate(0) translateY(-6px)}
+  .menu-photo{
+    width:100%;height:170px;object-fit:cover;border-radius:14px;
+    margin-bottom:1.1rem;border:3px solid var(--crema-2);
+    box-shadow:0 10px 22px -12px rgba(74,44,26,.45);
+  }
+  .menu-card .badge-num{
+    position:absolute;top:-18px;left:24px;
+    width:42px;height:42px;border-radius:50%;
+    background:var(--rosa);color:#fff;font-family:'Fraunces',serif;font-weight:900;
+    display:flex;align-items:center;justify-content:center;font-size:1.3rem;
+    box-shadow:0 6px 14px -4px rgba(244,168,150,.6);
+  }
+  .menu-card h3{font-size:1.5rem;color:var(--choco);margin:.6rem 0 .8rem}
+  .menu-card p{color:var(--muted)}
+  .menu-card .quote{
+    margin-top:1.2rem;font-family:'Caveat',cursive;font-size:1.35rem;color:var(--choco-2);
+    border-top:2px dashed var(--crema-2);padding-top:1rem;
+  }
+  /* mini illustrations inside menu cards */
+  .mini-illust{height:90px;display:flex;align-items:center;justify-content:center;margin-bottom:.6rem;position:relative}
+  .toast-stack{position:relative;width:120px;height:70px}
+  .toast-bread{position:absolute;inset:0;background:linear-gradient(160deg,#f0c589,#dba255);border-radius:14px}
+  .toast-butter{position:absolute;left:8%;right:8%;top:18%;height:14px;background:#fff4d6;border-radius:8px;opacity:.9}
+  .toast-ham{position:absolute;left:14%;right:14%;top:42%;height:24px;background:var(--rosa);clip-path:polygon(0% 30%,10% 0%,20% 30%,30% 0%,40% 30%,50% 0%,60% 30%,70% 0%,80% 30%,90% 0%,100% 30%,100% 100%,0% 100%)}
+  @media (max-width:1000px){ .menu-grid{grid-template-columns:repeat(2,1fr)} .menu-card:nth-child(3){grid-column:span 2;max-width:520px;margin:0 auto} }
+  @media (max-width:760px){ .menu-grid{grid-template-columns:1fr} .menu-card{transform:none!important} .menu-card:nth-child(3){grid-column:auto;max-width:none} }
+
+  /* ---------- reparto ---------- */
+  .reparto-inner{display:grid;grid-template-columns:auto 1fr auto;gap:2.5rem;align-items:center;position:relative;z-index:1}
+  .reparto-icon{width:5.4rem;height:5.4rem;border-radius:50%;background:rgba(224,164,88,.18);border:2px dashed var(--caramelo);display:flex;align-items:center;justify-content:center;color:var(--caramelo)}
+  .reparto-icon .icon{width:2.6rem;height:2.6rem}
+  .reparto-text h2{font-size:clamp(1.7rem,3.6vw,2.3rem);margin-bottom:.6rem}
+  .reparto-text p{color:var(--caramelo-2);max-width:48ch}
+  .reparto-actions{display:flex;flex-direction:column;gap:.8rem}
+  .section.dark .blob{background:var(--choco-2);opacity:.5}
+  .section.dark .blob.b1{width:300px;height:300px;top:-80px;left:-120px}
+  @media (max-width:820px){
+    .reparto-inner{grid-template-columns:1fr;text-align:center}
+    .reparto-icon{margin:0 auto}
+    .reparto-text p{margin:0 auto}
+    .reparto-actions{flex-direction:row;justify-content:center;flex-wrap:wrap}
+  }
+
+  /* ---------- reseñas ---------- */
+  .rating-banner{display:flex;align-items:center;justify-content:center;gap:1rem;margin:0 auto 3rem;flex-wrap:wrap;text-align:center}
+  .stars{display:flex;gap:.2rem;color:var(--caramelo)}
+  .stars .icon{width:1.4rem;height:1.4rem}
+  .rating-banner .rank{font-weight:800;background:#fff;border-radius:999px;padding:.5rem 1.2rem;font-size:.92rem;border:2px solid var(--crema-2)}
+  .reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem}
+  .review{background:#fff;border-radius:18px;padding:2rem 1.8rem;position:relative;box-shadow:var(--shadow)}
+  .review::before{
+    content:'';position:absolute;top:-10px;left:24px;width:60px;height:20px;
+    background:var(--caramelo-2);transform:rotate(-3deg);opacity:.8;
+  }
+  .review:nth-child(2)::before{transform:rotate(2deg);left:auto;right:24px}
+  .review p{color:var(--ink);font-size:1.02rem;margin-bottom:1.1rem;margin-top:.5rem}
+  .review .author{font-family:'Caveat',cursive;font-weight:700;font-size:1.2rem;color:var(--rosa)}
+  @media (max-width:900px){ .reviews{grid-template-columns:1fr} }
+
+  /* ---------- ubicacion ---------- */
+  .loc-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:3rem;align-items:start}
+  .hours-table{width:100%;border-collapse:collapse;margin-bottom:2rem;background:#fff;border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
+  .hours-table tr{border-bottom:1px solid var(--crema-2)}
+  .hours-table tr:last-child{border-bottom:none}
+  .hours-table td{padding:.8rem 1.2rem;font-size:1rem;font-weight:700}
+  .hours-table td:last-child{text-align:right;color:var(--choco-2)}
+  .hours-table tr.closed td:last-child{color:var(--rosa)}
+  .addr-block{display:flex;gap:1rem;align-items:flex-start;margin-bottom:1.6rem}
+  .addr-block .icon{color:var(--rosa);width:1.6rem;height:1.6rem;margin-top:.15rem}
+  .addr-block h4{font-family:'Fraunces',serif;font-size:1.05rem;color:var(--choco);margin-bottom:.2rem}
+  .map-frame{border-radius:24px;overflow:hidden;box-shadow:var(--shadow);border:6px solid #fff;aspect-ratio:4/3;transform:rotate(1deg)}
+  .map-frame iframe{width:100%;height:100%;border:0;filter:sepia(.12) saturate(1.1)}
+  @media (max-width:900px){ .loc-grid{grid-template-columns:1fr} }
+
+  /* ---------- footer ---------- */
+  footer{background:var(--choco);color:var(--crema-2);padding:3.5rem 0 2rem}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2.5rem;margin-bottom:2.5rem}
+  .foot-grid .brand{color:var(--crema)}
+  .foot-grid .brand .script{color:var(--caramelo)}
+  .foot-grid p{color:var(--caramelo-2);font-size:.95rem;margin-top:.8rem;max-width:34ch}
+  .foot-col h4{font-family:'Caveat',cursive;font-size:1.4rem;color:var(--caramelo);margin-bottom:1rem}
+  .foot-col a, .foot-col p{display:flex;align-items:center;gap:.7rem;color:var(--crema-2);text-decoration:none;font-size:.95rem;margin-bottom:.7rem;font-weight:700}
+  .foot-col .icon{color:var(--rosa);width:1.2rem;height:1.2rem;flex-shrink:0}
+  .foot-col a:hover{color:var(--caramelo)}
+  .foot-bottom{border-top:2px dashed var(--choco-2);padding-top:1.6rem;text-align:center;font-size:.85rem;color:var(--caramelo-2)}
+  @media (max-width:760px){ .foot-grid{grid-template-columns:1fr;gap:2rem} }
+
+  /* ---------- reveal ---------- */
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease, transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-phone" viewBox="0 0 24 24"><path fill="currentColor" d="M5 4h3l2 5-2.5 1.5a11 11 0 0 0 5 5L14 13l5 2v3a2 2 0 0 1-2 2C9.5 20 4 14.5 4 7a2 2 0 0 1 1-3z"/></symbol>
+  <symbol id="i-whatsapp" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.07L2 22l5.07-1.33A9.94 9.94 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.6 0-3.1-.43-4.4-1.18l-.32-.19-3.01.79.8-2.93-.2-.3A7.96 7.96 0 0 1 4 12c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8zm4.4-5.6c-.24-.12-1.43-.7-1.65-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.2-.47-.4-.4-.54-.41-.14-.01-.3-.01-.46-.01-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.12 3.64.58.25 1.03.4 1.38.51.58.18 1.1.16 1.52.1.46-.07 1.43-.58 1.63-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 7v5l3 2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.5l2.9 6.1 6.7.9-4.9 4.6 1.2 6.6L12 17.3l-5.9 3.4 1.2-6.6L2.4 9.5l6.7-.9z"/></symbol>
+  <symbol id="i-facebook" viewBox="0 0 24 24"><path fill="currentColor" d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-bag" viewBox="0 0 24 24"><path d="M6 8h12l-1.2 12.5a1 1 0 0 1-1 .9H8.2a1 1 0 0 1-1-.9L6 8z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+  <symbol id="i-crown" viewBox="0 0 24 24"><path fill="currentColor" d="M3.5 8.2l3.4 2.6 3.4-4.6a1.8 1.8 0 0 1 2.9 0l3.4 4.6 3.4-2.6a.6.6 0 0 1 .95.6l-1.5 8.4a1.2 1.2 0 0 1-1.18 1H5.23a1.2 1.2 0 0 1-1.18-1l-1.5-8.4a.6.6 0 0 1 .95-.6z"/><rect x="4.4" y="18.6" width="15.2" height="1.8" rx=".9" fill="currentColor"/></symbol>
+</svg>
+
+<header>
+  <div class="container">
+    <nav>
+      <div class="brand"><span class="logo-badge"><svg class="icon"><use href="#i-crown"/></svg></span>Los Príncipes <span class="script">churrería</span></div>
+      <div class="nav-links">
+        <a href="#menu">Carta</a>
+        <a href="#para-llevar">Para llevar</a>
+        <a href="#opiniones">Opiniones</a>
+        <a href="#ubicacion">Cómo llegar</a>
+        <a class="btn btn-primary" href="tel:+34628900062"><svg class="icon"><use href="#i-phone"/></svg>Llamar</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="container hero-grid">
+    <div class="hero-text">
+      <span class="sticker">¡recién hechos cada mañana!</span>
+      <h1>Los<br>Príncipes<span class="script">churros, chocolate y mucho cariño</span></h1>
+      <p class="lede">Una churrería de barrio, de las de toda la vida. Te esperamos en Fátima con churros calentitos, chocolate espeso y esas tostadas que ya conoces de memoria.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="tel:+34628900062"><svg class="icon"><use href="#i-phone"/></svg>Llamar ahora</a>
+        <a class="btn btn-outline" href="https://wa.me/34628900062" target="_blank" rel="noopener"><svg class="icon"><use href="#i-whatsapp"/></svg>WhatsApp</a>
+      </div>
+      <div class="schedule-pill">
+        <svg class="icon"><use href="#i-clock"/></svg>
+        Lun, mar, jue, vie y dom · 06:00–13:00
+      </div>
+    </div>
+    <div class="hero-illust" aria-hidden="true">
+      <div class="churro churro-3"></div>
+      <div class="churro churro-1"></div>
+      <div class="churro churro-2"></div>
+      <div class="cup"></div>
+      <div class="steam s1" style="left:42%;bottom:48%"></div>
+      <div class="steam s2" style="left:52%;bottom:50%"></div>
+      <div class="steam s3" style="left:47%;bottom:45%"></div>
+      <div class="sugar" style="width:6px;height:6px;left:30%;top:20%"></div>
+      <div class="sugar" style="width:4px;height:4px;left:60%;top:15%"></div>
+      <div class="sugar" style="width:5px;height:5px;left:70%;top:30%"></div>
+      <div class="sugar" style="width:4px;height:4px;left:20%;top:35%"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="menu">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="sticker">lo más pedido</span>
+      <h2>El desayuno que no falla</h2>
+      <p>Tres clásicos hechos con calma cada mañana, los de siempre, los que vuelves a pedir.</p>
+    </div>
+    <div class="menu-grid">
+      <div class="menu-card reveal">
+        <div class="badge-num">1</div>
+        <img class="menu-photo" src="https://upload.wikimedia.org/wikipedia/commons/8/85/Chocolate_with_churros.jpg" alt="Churros con chocolate" loading="lazy">
+        <h3>Churros con chocolate</h3>
+        <p>Esponjosos y nada aceitosos, fritos al momento y servidos con un chocolate espeso de los que se quedan en la cuchara. Para mojar despacio, sin prisa.</p>
+        <div class="quote">"Sin duda los mejores churros que he probado"</div>
+      </div>
+      <div class="menu-card reveal">
+        <div class="badge-num">2</div>
+        <img class="menu-photo" src="https://upload.wikimedia.org/wikipedia/commons/4/41/Porras_san_gines.JPG" alt="Geringos cordobeses" loading="lazy">
+        <h3>Geringos</h3>
+        <p>El otro grande de la casa: el geringo cordobés. Más grueso y esponjoso que el churro fino, frito en aro como manda la tradición — crujiente por fuera, tierno por dentro. Para los que piden "de los gordos".</p>
+        <div class="quote">— Receta cordobesa, de las de toda la vida</div>
+      </div>
+      <div class="menu-card reveal">
+        <div class="badge-num">3</div>
+        <div class="mini-illust">
+          <div class="toast-stack">
+            <div class="toast-bread"></div>
+            <div class="toast-butter"></div>
+            <div class="toast-ham"></div>
+          </div>
+        </div>
+        <h3>Tostadas a la andaluza</h3>
+        <p>Las de toda la vida: con aceite de oliva virgen extra, con tomate, con manteca colorá y zurrapa, o con mantequilla y mermelada. Pan recién tostado para mojar en el café con leche.</p>
+        <div class="quote">"Calidad-precio insuperable, se nota el cariño"</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section dark" id="para-llevar">
+  <div class="blob b1"></div>
+  <div class="container">
+    <div class="reparto-inner reveal">
+      <div class="reparto-icon"><svg class="icon"><use href="#i-bag"/></svg></div>
+      <div class="reparto-text">
+        <span class="sticker" style="background:var(--crema);transform:rotate(3deg)">¡para llevar!</span>
+        <h2 style="margin-top:.8rem">¿Vas con prisa? Encárgalos y los recoges calentitos</h2>
+        <p>Llámanos o escríbenos por WhatsApp, te los dejamos preparados en el mostrador y solo tienes que pasar a recogerlos. Churros, geringos o tostadas, listos cuando tú llegues.</p>
+      </div>
+      <div class="reparto-actions">
+        <a class="btn btn-primary" style="background:var(--caramelo);color:var(--choco)" href="https://wa.me/34628900062" target="_blank" rel="noopener"><svg class="icon"><use href="#i-whatsapp"/></svg>Encargar por WhatsApp</a>
+        <a class="btn btn-outline-light" href="tel:+34628900062"><svg class="icon"><use href="#i-phone"/></svg>Llamar</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section cream" id="opiniones">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="sticker">opiniones</span>
+      <h2>Lo que dicen de nosotros</h2>
+    </div>
+    <div class="rating-banner reveal">
+      <div class="stars">
+        <svg class="icon filled"><use href="#i-star"/></svg>
+        <svg class="icon filled"><use href="#i-star"/></svg>
+        <svg class="icon filled"><use href="#i-star"/></svg>
+        <svg class="icon filled"><use href="#i-star"/></svg>
+        <svg class="icon filled"><use href="#i-star"/></svg>
+      </div>
+      <span class="rank">TripAdvisor · #500 de 1.263 en Córdoba</span>
+    </div>
+    <div class="reviews">
+      <div class="review reveal">
+        <p>"Sin duda los mejores churros que he probado. Esponjosos, nada aceitosos. Un placer desayunar allí."</p>
+        <div class="author">— TripAdvisor</div>
+      </div>
+      <div class="review reveal">
+        <p>"Las tostadas de jamón york con mantequilla y los pizquitos, de verdad de calidad."</p>
+        <div class="author">— TripAdvisor</div>
+      </div>
+      <div class="review reveal">
+        <p>"El personal es muy amable y simpático. Calidad-precio difícil de superar."</p>
+        <div class="author">— TripAdvisor</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="ubicacion">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="sticker">te esperamos</span>
+      <h2>En el corazón de Fátima</h2>
+      <p>Avenida de Virgen de Fátima, justo donde el barrio empieza a despertar.</p>
+    </div>
+    <div class="loc-grid">
+      <div class="loc-info reveal">
+        <table class="hours-table">
+          <tr><td>Lunes</td><td>06:00–13:00</td></tr>
+          <tr><td>Martes</td><td>06:00–13:00</td></tr>
+          <tr class="closed"><td>Miércoles</td><td>Cerrado</td></tr>
+          <tr><td>Jueves</td><td>06:00–13:00</td></tr>
+          <tr><td>Viernes</td><td>06:00–13:00</td></tr>
+          <tr class="closed"><td>Sábado</td><td>Cerrado</td></tr>
+          <tr><td>Domingo</td><td>06:00–13:00</td></tr>
+        </table>
+        <div class="addr-block">
+          <svg class="icon"><use href="#i-pin"/></svg>
+          <div>
+            <h4>Dirección</h4>
+            Av. Virgen de Fátima, 47 · 14014 Córdoba
+          </div>
+        </div>
+        <a class="btn btn-primary" href="https://www.google.com/maps/dir/?api=1&destination=Cafeter%C3%ADa+Churrer%C3%ADa+Los+Pr%C3%ADncipes,+Avenida+de+Virgen+de+F%C3%A1tima+47,+C%C3%B3rdoba" target="_blank" rel="noopener">Cómo llegar<svg class="icon"><use href="#i-arrow"/></svg></a>
+      </div>
+      <div class="map-frame reveal">
+        <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=-4.75801%2C37.89477%2C-4.75001%2C37.90077&amp;layer=mapnik&amp;marker=37.89777%2C-4.75401" loading="lazy" title="Mapa de ubicación de Los Príncipes"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <div class="brand"><span class="logo-badge"><svg class="icon"><use href="#i-crown"/></svg></span>Los Príncipes <span class="script">churrería</span></div>
+        <p>Churros, chocolate y desayunos de barrio en Fátima, Córdoba. Cada madrugada, recién hecho.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Contacto</h4>
+        <a href="tel:+34628900062"><svg class="icon"><use href="#i-phone"/></svg>+34 628 90 00 62</a>
+        <a href="https://wa.me/34628900062" target="_blank" rel="noopener"><svg class="icon"><use href="#i-whatsapp"/></svg>WhatsApp</a>
+        <a href="https://www.facebook.com/p/Cafeter%C3%ADa-Churrer%C3%ADa-Los-Principes-100054588842439/" target="_blank" rel="noopener"><svg class="icon"><use href="#i-facebook"/></svg>Facebook</a>
+      </div>
+      <div class="foot-col">
+        <h4>Dirección</h4>
+        <p><svg class="icon"><use href="#i-pin"/></svg>Av. Virgen de Fátima, 47<br>14014 Córdoba</p>
+      </div>
+    </div>
+    <div class="foot-bottom">© Cafetería Churrería Los Príncipes — Fátima, Córdoba</div>
+  </div>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); } });
+  },{threshold:.15});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+
+</body>
+</html>
